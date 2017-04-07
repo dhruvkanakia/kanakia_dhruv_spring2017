@@ -11,106 +11,103 @@
 #   • Create two separate columns for each award category (won and nominated).
 #   • Write your output to a csv file.
 
-# In[20]:
+# In[39]:
 
 import numpy as np
 import pandas as pd
 from pandas import DataFrame
 
 
-# In[21]:
+# In[40]:
 
 import os
 path=os.getcwd()
 
 
-# In[22]:
+# In[41]:
 
 final_path=path+ "\\Data\\movies_awards.csv"
 
 
-# In[23]:
+# In[42]:
 
 #Reading csv file
 df= pd.read_csv(final_path, skipinitialspace=True)
 
 
-# In[24]:
+# In[43]:
 
 df = df.fillna(0)
 
 
-# In[25]:
+# In[44]:
 
 df['Prime_Awards_Won']= df['Awards'].str.extract('Won (\d+) Primetime', expand=True).apply(pd.to_numeric)
 df['Bafta_Awards_Won']= df['Awards'].str.extract('Won (\d+) BAFTA', expand=True).apply(pd.to_numeric)
 
 
-# In[26]:
+# In[45]:
 
 df['Prime_Awards_Nominated']= df['Awards'].str.extract('Nomination in (\d+) Primetime', expand=True).apply(pd.to_numeric)
 df['Bafta_Awards_Nominated']= df['Awards'].str.extract('Nomination in (\d+) BAFTA', expand=True).apply(pd.to_numeric)
 
 
-# In[27]:
+# In[46]:
 
 df['Oscar_Awards_Won']= df['Awards'].str.extract('Won (\d+) Oscar', expand=True).apply(pd.to_numeric)
 df['GoldenGlobeAwards_Won']= df['Awards'].str.extract('Won (\d+) Golden Globe', expand=True).apply(pd.to_numeric)
 
 
-# In[28]:
+# In[47]:
 
 df['Oscar_Awards_Nominated']= df['Awards'].str.extract('Nomination in (\d+) Oscar', expand=True).apply(pd.to_numeric)
 df['GoldenGlobeAwards_Nominated']= df['Awards'].str.extract('Nomination in (\d+) Golden Globe', expand=True).apply(pd.to_numeric)
 
 
-# In[29]:
+# In[48]:
 
 df['Total_Awards_Won'] = df['Awards'].str.extract('(\d+) win', expand=True).apply(pd.to_numeric)
 df['Total_Awards_Nominated'] = df['Awards'].str.extract('(\d+) Nominated', expand=True).apply(pd.to_numeric)
 
 
-# In[30]:
+# In[49]:
 
 #Replacing Nan with 0
 df = df.fillna(0)
 
 
-# In[31]:
+# In[50]:
 
 # calculating total awards won
 df['Total_Awards_Won'] = df['Total_Awards_Won']+df['Prime_Awards_Won']+df['Bafta_Awards_Won']+df['Oscar_Awards_Won']+df['GoldenGlobeAwards_Won']
 
 
-# In[32]:
-
-#Calculating total nominations
+# In[51]:
 
 df['Total_Awards_Nominated']=df['Total_Awards_Nominated']+df['Prime_Awards_Nominated']+df['Bafta_Awards_Nominated']+df['Oscar_Awards_Nominated']+df['GoldenGlobeAwards_Nominated']
 
 
-# In[33]:
+# In[52]:
 
-#selecting desired columns
-df2=df[['Awards','Total_Awards_Won','Total_Awards_Won','Prime_Awards_Nominated','Oscar_Awards_Nominated','GoldenGlobeAwards_Nominated','Bafta_Awards_Nominated','Prime_Awards_Won','Oscar_Awards_Won','GoldenGlobeAwards_Won','Bafta_Awards_Won']]
-
-
-# In[34]:
-
-df2.head()
+df2=df[['Awards','Total_Awards_Won','Total_Awards_Nominated','Prime_Awards_Nominated','Oscar_Awards_Nominated','GoldenGlobeAwards_Nominated','Bafta_Awards_Nominated','Prime_Awards_Won','Oscar_Awards_Won','GoldenGlobeAwards_Won','Bafta_Awards_Won']]
 
 
-# In[35]:
-
-df2= df2.loc[~(df2==0).all(axis=1)]
-
-
-# In[36]:
+# In[53]:
 
 df2.head()
 
 
-# In[37]:
+# In[54]:
+
+df2 = df2[df2.Awards != 0] 
+
+
+# In[55]:
+
+df2.head()
+
+
+# In[56]:
 
 df2.to_csv('Q4.csv', sep=',')
 
