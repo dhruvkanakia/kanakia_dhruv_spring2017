@@ -57,10 +57,12 @@ Various plots between different attributes were plotted using bar/histogram to g
 1. It can be concluded that the number of films being released in recent has been increased significantly and the quality of movie has been impacted. 
 2. The IMDb score and gross are directly related    [3dplot]
 3. High Budget movies aren't really making that profit. More the budget lesser is the profit
-![budget_vs_net](https://cloud.githubusercontent.com/assets/10628795/25308729/5aa432c6-2789-11e7-8c23-77943b59ee0c.JPG)
+<img width="206" alt="bat" align="right" src="https://cloud.githubusercontent.com/assets/10628795/25308729/5aa432c6-2789-11e7-8c23-77943b59ee0c.JPG">
 4. The net and net_percentage which is a calculated value is not directly related to any attribute
+![corelationplot](https://cloud.githubusercontent.com/assets/10628795/25308783/5544ad00-278a-11e7-9e24-e7908fa582d0.png)
+5. 2006 was the year when the budget was the highest and gross was the lowest.
 
-
+## ANALYSIS -2
 
 
 
