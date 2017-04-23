@@ -117,13 +117,18 @@ Various plots between different attributes were plotted using bar/histogram to g
 
 2. Best Director is: 
 
+
 ![bestdir_overall](https://cloud.githubusercontent.com/assets/10628795/25309226/6229ba6e-2795-11e7-9303-ac4fdd59e6fc.png)
+
 
 3. Best Actors are:
 
 ![best_actor](https://cloud.githubusercontent.com/assets/10628795/25309227/6f592454-2795-11e7-9a7c-f2d309db396a.png)
 
+
 4. USA has the highest number of distinct language movie releases
+
+
 
 ![languages](https://cloud.githubusercontent.com/assets/10628795/25309231/8fc7ae90-2795-11e7-80b7-f8a338119ece.png)
 
@@ -182,24 +187,37 @@ df_actor = df_actor[['actor_123','genre', 'budget', 'gross', 'year','actors_list
 * A csv of top 10 actors in each of the top 5 genre's is created and wordcloud's are plotted to find out which actor is the most versatile of all.
 
 
+
 ## Insights:
 1. All in all there are 22 genre's in the data set
+
+
 ![all_wc](https://cloud.githubusercontent.com/assets/10628795/25309462/d98b2812-279b-11e7-9b35-b7b5cff5e8a9.png)
 
 2. Drama has the highest mean imdb rating in the dataset followed by crime, mystery, adventure and romance
+
+
 ![trend_wc](https://cloud.githubusercontent.com/assets/10628795/25309464/0956dd98-279c-11e7-8eb3-d758fcd69d0d.png)
 
+
 3. The top 5 most used genre are Action, Thriller, Drama, Comedy, Romance. 
+
+
 ![genre_count](https://cloud.githubusercontent.com/assets/10628795/25309482/78890e0c-279c-11e7-969d-f727dd5c51ad.png)
+
+
 
 4. The top 5 genre distribution in terms of IMDb rating over the year's shows that Action is the most consistent of all followed by thriller and comedy. It can also be inferred that as year's passed by the industry has fair share of genre in each year especially after 1973. So, 1973 can be termed as a major revolution of film industry.
 
 5. Of the 5 top genre looks like Tom Hanks is the most versatile actor amongst followed by Leonardo Di Caprio. 
+
 ![consistent](https://cloud.githubusercontent.com/assets/10628795/25309591/5510d7f4-279f-11e7-9fea-89f17ef6af9a.png)
 
 
 ## Analysis 4
+
 [Click to view this Analysis](https://github.com/dhruvkanakia/kanakia_dhruv_spring2017/blob/master/Final/Analysis/Analysis%204.ipynb)
+
 
 --After keywords, The other attribute that plays an important role in movie analysis are the plot keywords. So, in this analysis we will look around the relationship between differeny aspects of plot keywords
 
@@ -222,18 +240,28 @@ df_actor = df_actor[['actor_123','genre', 'budget', 'gross', 'year','actors_list
 ## Insights:
 
 1. The most used plot keywords are love, friend, mother, death. <p align="center">
-  <img src="https://cloud.githubusercontent.com/assets/10628795/25309968/f4bb7d42-27a7-11e7-821c-36c3ca0fec81.png" width="600" title="Github Logo"> </p>
+ 
+ <img src="https://cloud.githubusercontent.com/assets/10628795/25309968/f4bb7d42-27a7-11e7-821c-36c3ca0fec81.png" width="600" title="Github Logo"> </p>
+
 
 2. Word cloud of all the keywords used in the data set are: 
+
 ![keywords_plot](https://cloud.githubusercontent.com/assets/10628795/25310017/cd1e1960-27a8-11e7-8f5d-138b76c6676c.png)
 
+
 3. The common word which we can see amongst all the three word cloud are relationhip, sex, girl, death, war, american, movie, character etc.
+
+
 ![common_wordcloud](https://cloud.githubusercontent.com/assets/10628795/25310025/ef16823c-27a8-11e7-9f47-48ae9d90a6ed.png)
 
+
 4. The most bankable action plot keyword are 
+
+
 ![action_most_bankable](https://cloud.githubusercontent.com/assets/10628795/25310068/d10f96e2-27a9-11e7-9730-a91dd4489faa.png)
 
 5. Best plot keywords for top 5 genres are: Sex, relationship, star, school, woman, death, war, abuse are few of the most common plot keywords
+
 ![top5_plot_keyword](https://cloud.githubusercontent.com/assets/10628795/25310065/bc2fbab8-27a9-11e7-81ab-dbbe51ad5a86.png)
 
 
@@ -268,12 +296,22 @@ df_dir_act_sort_action= df_dir_act_action[['director_name','actor']].groupby(['d
 
 1. The mean imdb plot of action vs other genres clearly shows action has not done well when compared with other genre
 
+
 ![download](https://cloud.githubusercontent.com/assets/10628795/25310355/cb2ebf44-27b0-11e7-8ed0-1d3eec35a312.png)
+
 
 2. Actor director combination who has most number of films together
 
+
 ![action_dir_action](https://cloud.githubusercontent.com/assets/10628795/25310372/eff3394a-27b0-11e7-9be0-86a5e9c9788c.PNG)
+
 
 3. Best actor director combination in action
 
+
 ![best_actor_dir_pair_action](https://cloud.githubusercontent.com/assets/10628795/25310377/06fe41de-27b1-11e7-8242-37341253301a.PNG)
+
+
+## Our analysis analysis all the major aspects in the data set and one can easily relate to the analysis to predict whether a movie would be hit a not as well as to take decisions on casting, best time to release a movie, best keywords to use etc.
+
+From the analysis one thing is Obvious BATMAN ROCKS!! Chritsopher Nolan and Christian Bale are in majority of the top 5 list be it best director actor or best director. 
