@@ -82,9 +82,7 @@ Various plots between different attributes were plotted using bar/histogram to g
 ![3dplot](https://cloud.githubusercontent.com/assets/10628795/25309080/1e5ce90e-2791-11e7-94ec-13413c70f5c8.png)
 3. High Budget movies aren't really making that profit. More the budget lesser is the profit
 ![budget_vs_net](https://cloud.githubusercontent.com/assets/10628795/25309084/275a39f8-2791-11e7-8134-2e5a0e64310e.png)
-4. The net and net_percentage which is a calculated value is not directly related to any attribute
-![corelationplot](https://cloud.githubusercontent.com/assets/10628795/25308783/5544ad00-278a-11e7-9e24-e7908fa582d0.png)
-5. 2006 was the year when the budget was the highest and gross was the lowest.
+4. The net and net_percentage which is a calculated value is not directly related to any attribute. Our co-relation table directly shows that.
 
 
 ## ANALYSIS -2
@@ -117,13 +115,14 @@ Various plots between different attributes were plotted using bar/histogram to g
 
 2. Best Director is: 
 
+![final_best_dir](https://cloud.githubusercontent.com/assets/10628795/25575651/4c22bbce-2e27-11e7-9df3-da9849503e11.PNG)
 
-![bestdir_overall](https://cloud.githubusercontent.com/assets/10628795/25309226/6229ba6e-2795-11e7-9303-ac4fdd59e6fc.png)
 
 
 3. Best Actors are:
 
-![best_actor](https://cloud.githubusercontent.com/assets/10628795/25309227/6f592454-2795-11e7-9a7c-f2d309db396a.png)
+![final_actor_best](https://cloud.githubusercontent.com/assets/10628795/25575660/535c482e-2e27-11e7-8b87-b82281e5f8c0.PNG)
+
 
 
 4. USA has the highest number of distinct language movie releases
@@ -152,37 +151,6 @@ So this analysis is completely based on movie related attributes
 
 ## Procedure:
 * The genre's column was cleaned and split amongst each director and actor to analyze various details.
-The below code is used to separate the three actors list with different genre's
-
-``` python
-df_actor = pd.DataFrame(columns = ['actor_123','genre', 'budget', 'gross', 'year','director_name','imdb_score','net','net_percentage','movie_title'])
-
-def actorRemap(row):
-    global df_actor
-    d = {}
-    actors = np.array(row['actors'].split(','))
-    n = actors.size
-    d['actors']= [row['actors']]*n
-    d['genre']= [row['genre']]*n
-    d['budget'] = [row['budget']]*n
-    d['gross'] = [row['gross']]*n
-    d['year'] = [row['year']]*n
-    d['director_name']= [row['director_name']]*n
-    d['imdb_score']=[row['imdb_score']]*n
-    d['net']= [row['net']]*n
-    d['net_percentage']= [row['net_percentage']]*n
-    d['movie_title']= [row['movie_title']]*n
-    d['actor_123'], d['actors_list1'] = [], []
-    for actor_123 in actors:
-        d['actor_123'].append(actor_123)
-        d['actors_list1'].append(actors[actors != actor_123])
-    df_actor = df_actor.append(pd.DataFrame(d), ignore_index = True)
-
-df_genre.apply(actorRemap, axis = 1)
-df_actor['year'] = df_actor['year'].astype(np.int16)
-df_actor = df_actor[['actor_123','genre', 'budget', 'gross', 'year','actors_list1','director_name','imdb_score','net','net_percentage','movie_title']]
-```
-
 * Bar plots are used to visualize which genre's have been used most number of times in the data set
 * A csv of top 10 actors in each of the top 5 genre's is created and wordcloud's are plotted to find out which actor is the most versatile of all.
 
@@ -191,27 +159,14 @@ df_actor = df_actor[['actor_123','genre', 'budget', 'gross', 'year','actors_list
 ## Insights:
 1. All in all there are 22 genre's in the data set
 
-
-![all_wc](https://cloud.githubusercontent.com/assets/10628795/25309462/d98b2812-279b-11e7-9b35-b7b5cff5e8a9.png)
-
-2. Drama has the highest mean imdb rating in the dataset followed by crime, mystery, adventure and romance
-
-
-![trend_wc](https://cloud.githubusercontent.com/assets/10628795/25309464/0956dd98-279c-11e7-8eb3-d758fcd69d0d.png)
-
-
-3. The top 5 most used genre are Action, Thriller, Drama, Comedy, Romance. 
+2. The top 5 most used genre are Action, Thriller, Drama, Comedy, Romance. 
 
 
 ![genre_count](https://cloud.githubusercontent.com/assets/10628795/25309482/78890e0c-279c-11e7-969d-f727dd5c51ad.png)
 
 
 
-4. The top 5 genre distribution in terms of IMDb rating over the year's shows that Action is the most consistent of all followed by thriller and comedy. It can also be inferred that as year's passed by the industry has fair share of genre in each year especially after 1973. So, 1973 can be termed as a major revolution of film industry.
-
-5. Of the 5 top genre looks like Tom Hanks is the most versatile actor amongst followed by Leonardo Di Caprio. 
-
-![consistent](https://cloud.githubusercontent.com/assets/10628795/25309591/5510d7f4-279f-11e7-9fea-89f17ef6af9a.png)
+3. The top 5 genre distribution in terms of IMDb rating over the year's shows that Action is the most consistent of all followed by thriller and comedy. It can also be inferred that as year's passed by the industry has fair share of genre in each year especially after 1973. So, 1973 can be termed as a major revolution of film industry.
 
 
 ## Analysis 4
@@ -255,12 +210,7 @@ df_actor = df_actor[['actor_123','genre', 'budget', 'gross', 'year','actors_list
 ![common_wordcloud](https://cloud.githubusercontent.com/assets/10628795/25310025/ef16823c-27a8-11e7-9f47-48ae9d90a6ed.png)
 
 
-4. The most bankable action plot keyword are 
-
-
-![action_most_bankable](https://cloud.githubusercontent.com/assets/10628795/25310068/d10f96e2-27a9-11e7-9730-a91dd4489faa.png)
-
-5. Best plot keywords for top 5 genres are: Sex, relationship, star, school, woman, death, war, abuse are few of the most common plot keywords
+4. Best plot keywords for top 5 genres are: Sex, relationship, star, school, woman, death, war, abuse are few of the most common plot keywords
 
 ![top5_plot_keyword](https://cloud.githubusercontent.com/assets/10628795/25310065/bc2fbab8-27a9-11e7-81ab-dbbe51ad5a86.png)
 
@@ -294,19 +244,13 @@ df_dir_act_sort_action= df_dir_act_action[['director_name','actor']].groupby(['d
 
 ## Insights:
 
-1. The mean imdb plot of action vs other genres clearly shows action has not done well when compared with other genre
-
-
-![download](https://cloud.githubusercontent.com/assets/10628795/25310355/cb2ebf44-27b0-11e7-8ed0-1d3eec35a312.png)
-
-
-2. Actor director combination who has most number of films together
+1. Actor director combination who has most number of films together
 
 
 ![action_dir_action](https://cloud.githubusercontent.com/assets/10628795/25310372/eff3394a-27b0-11e7-9be0-86a5e9c9788c.PNG)
 
 
-3. Best actor director combination in action
+2. Best actor director combination in action
 
 
 ![best_actor_dir_pair_action](https://cloud.githubusercontent.com/assets/10628795/25310377/06fe41de-27b1-11e7-8242-37341253301a.PNG)
